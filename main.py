@@ -1,11 +1,3 @@
-"""
-Advanced SIEM System - Main Entry Point
-Yahan se sab kuch start hota hai.
- 
-Run karo:
-    python main.py
-"""
- 
 import os
 from flask import Flask, jsonify
 from flask_socketio import SocketIO
