@@ -1,10 +1,3 @@
-"""
-API Routes - Threat Intelligence
-GET  /api/threat-intel           → saare IOCs
-POST /api/threat-intel           → naya IOC add
-GET  /api/threat-intel/check     → koi IP/domain threat hai?
-"""
- 
 from flask import Blueprint, request, jsonify
 from models.database import ThreatIntel
 from extensions import get_session
@@ -71,10 +64,7 @@ def add_indicator():
  
 @threat_intel_bp.route("/threat-intel/check", methods=["GET"])
 def check_indicator():
-    """
-    Koi IP ya domain threat list mein hai ya nahi check karo.
-    Usage: GET /api/threat-intel/check?indicator=1.2.3.4
-    """
+  
     session = get_session()
     try:
         indicator = request.args.get("indicator")
