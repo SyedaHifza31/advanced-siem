@@ -1,13 +1,7 @@
-"""
-Advanced SIEM System - Configuration
-Sab settings yahan se control hoti hain.
-"""
- 
 import os
 from pathlib import Path
 from dotenv import load_dotenv
  
-# .env file load karo
 load_dotenv()
  
 BASE_DIR = Path(__file__).parent
