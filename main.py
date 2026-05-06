@@ -46,8 +46,7 @@ def index():
 # ─── Start Log Ingestion (background threads) ─────────────────────────────────
 from engine.ingestion import start_all as start_ingestion
 start_ingestion()
- 
- 
+    
 # ─── Run ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     print(f"""
@@ -62,5 +61,9 @@ if __name__ == "__main__":
         host=config.HOST,
         port=config.PORT,
         debug=config.DEBUG,
+    ) if __name__ == "__main__":
+    socketio.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
     )
- 
