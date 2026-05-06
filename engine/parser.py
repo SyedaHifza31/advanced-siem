@@ -1,8 +1,3 @@
-"""
-Engine - Log Parser
-Raw log strings ko structured Event dict mein convert karta hai.
-"""
- 
 import re
 from datetime import datetime
  
@@ -16,11 +11,7 @@ _NGINX       = re.compile(
 )
  
  
-def parse_raw(raw_message: str, source_type: str = "syslog") -> dict:
-    """
-    Raw log string parse karo.
-    Return karta hai: dict with fields jo Event model mein jate hain.
-    """
+def
     result = {
         "raw_message": raw_message,
         "source_type": source_type,
