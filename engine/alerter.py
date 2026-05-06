@@ -1,8 +1,3 @@
-"""
-Engine - Alerter
-Alert banane ke baad email ya Slack pe bhejta hai.
-"""
- 
 import smtplib
 import json
 import requests
@@ -11,8 +6,7 @@ from email.mime.multipart import MIMEMultipart
 import config
  
  
-def send_alert_notification(alert_dict: dict):
-    """Alert ko configured channels pe bhejo."""
+def send_alert_notification(alert_dict: dict)
     channels = config.ALERT_CHANNELS
  
     if channels.get("email", {}).get("enabled"):

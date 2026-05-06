@@ -1,8 +1,3 @@
-"""
-Advanced SIEM - Database Models
-SQLAlchemy ORM models: Event, Alert, Asset, ThreatIntel, AuditLog
-"""
- 
 from datetime import datetime
 from sqlalchemy import (
     Column, Integer, String, Text, Float, Boolean,
@@ -45,7 +40,7 @@ class Event(Base):
     tags         = Column(JSON)          # list of strings
     rule_matches = Column(JSON)          # matched rule IDs
  
-    # Foreign key → Alert  (nullable: event may not have an alert yet)
+  
     alert_id     = Column(Integer, ForeignKey("alerts.id"), nullable=True)
     alert        = relationship("Alert", back_populates="events")
  
@@ -269,7 +264,6 @@ def get_engine(db_url: str):
  
  
 def init_db(db_url: str):
-    """Tables banao aur Session factory return karo."""
     engine = get_engine(db_url)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)

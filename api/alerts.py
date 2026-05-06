@@ -1,12 +1,3 @@
-"""
-API Routes - Alerts
-GET    /api/alerts           → saare alerts
-GET    /api/alerts/<id>      → ek alert
-POST   /api/alerts           → naya alert
-PATCH  /api/alerts/<id>      → status update (ACK, CLOSE, FP)
-DELETE /api/alerts/<id>      → alert delete
-"""
- 
 from flask import Blueprint, request, jsonify
 from models.database import Alert
 from extensions import get_session

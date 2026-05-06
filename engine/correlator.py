@@ -1,9 +1,3 @@
-"""
-Engine - Correlator
-Events ko analyze karta hai aur alerts generate karta hai.
-Brute force aur port scan detect karta hai.
-"""
- 
 from collections import defaultdict
 from datetime import datetime, timedelta
 from models.database import Alert, Event
@@ -18,17 +12,12 @@ class Correlator:
         self._port_tracker: dict[str, set]  = defaultdict(set)
  
     def _clean_old(self, ip: str, window: int):
-        """Window ke bahar ke purane events hatao."""
         cutoff = datetime.utcnow() - timedelta(seconds=window)
         self._fail_tracker[ip] = [
             t for t in self._fail_tracker[ip] if t > cutoff
         ]
  
     def process_event(self, event: Event):
-        """
-        Ek event lo, correlation rules chalao,
-        alert generate karo agar zaroorat ho.
-        """
         if not event.source_ip:
             return
  
@@ -102,7 +91,6 @@ class Correlator:
             )
  
     def _create_alert(self, **kwargs):
-        """DB mein naya alert save karo."""
         session = get_session()
         try:
             alert = Alert(**kwargs)

@@ -1,9 +1,3 @@
-"""
-Engine - Log Ingestion
-Syslog UDP/TCP aur file watcher se logs collect karta hai.
-Har log parse karke DB mein save karta hai.
-"""
- 
 import socket
 import threading
 from datetime import datetime
