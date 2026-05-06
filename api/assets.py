@@ -1,11 +1,3 @@
-"""
-API Routes - Assets
-GET   /api/assets          → saare assets
-GET   /api/assets/<id>     → ek asset
-POST  /api/assets          → naya asset
-PATCH /api/assets/<id>     → update asset
-"""
- 
 from flask import Blueprint, request, jsonify
 from models.database import Asset
 from extensions import get_session
