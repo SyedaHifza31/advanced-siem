@@ -1,11 +1,3 @@
-"""
-API Routes - Events
-GET  /api/events          → saare events
-GET  /api/events/<id>     → ek event
-POST /api/events          → naya event add karo
-DELETE /api/events/<id>   → event delete karo
-"""
- 
 from flask import Blueprint, request, jsonify
 from models.database import Event
 from extensions import get_session
